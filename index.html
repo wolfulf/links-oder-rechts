@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>links oder rechts</title>
+  <meta name="description" content="Lastenrad? Schnitzel? Gartenzwerg? Wisch jedes Ding dahin, wo es hingehört: nach links oder nach rechts.">
+  <meta property="og:title" content="links oder rechts">
+  <meta property="og:description" content="Lastenrad? Schnitzel? Gartenzwerg? Wisch jedes Ding dahin, wo es hingehört: nach links oder nach rechts.">
+  <meta name="theme-color" content="#eef0f3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <h1 class="titel" aria-label="links oder rechts">
+      <span class="wort wort-links">links</span>
+      <span class="oder">oder</span>
+      <span class="wort wort-rechts">rechts</span>
+    </h1>
+    <p class="hinweis" id="hinweis" hidden>
+      <span id="hinweis-text"></span>
+      <button class="hinweis-knopf" id="vergleich-beenden" type="button">lieber nicht</button>
+    </p>
+  </header>
+
+  <main class="buehne">
+    <div class="stapel" id="stapel" aria-live="polite"></div>
+
+    <section class="ergebnis" id="ergebnis-ansicht" hidden aria-labelledby="ergebnis-titel">
+      <div class="ergebnis-inhalt">
+        <p class="kicker" id="ergebnis-kicker">Dein Ergebnis</p>
+        <h2 class="ergebnis-titel" id="ergebnis-titel">Alles eingeordnet.</h2>
+
+        <div class="verteilung" aria-hidden="true">
+          <div class="verteilung-balken">
+            <span class="balken-links" id="balken-links"></span>
+            <span class="balken-rechts" id="balken-rechts"></span>
+          </div>
+        </div>
+        <div class="zahlen">
+          <p class="zahl zahl-links"><strong id="anzahl-links">0</strong> links</p>
+          <p class="zahl zahl-rechts"><strong id="anzahl-rechts">0</strong> rechts</p>
+        </div>
+
+        <section class="block vergleich" id="vergleich" hidden>
+          <p class="kicker">Ihr zwei</p>
+          <p class="vergleich-quote"><strong id="vergleich-prozent">0 %</strong> einig</p>
+          <p class="block-text" id="vergleich-text"></p>
+          <ul class="unterschiede" id="unterschiede"></ul>
+        </section>
+
+        <section class="block teilen" id="teilen">
+          <p class="kicker">Weiterschicken</p>
+          <h3 class="block-titel">Und wie ticken deine Leute?</h3>
+          <p class="block-text">Schick den Link in den Gruppenchat. Wer draufklickt, wischt sich selbst durch und sieht am Ende, wo ihr euch einig seid. Und über welche Dinge ihr beim nächsten Abendessen reden müsst.</p>
+          <div class="teilen-zeile">
+            <button class="knopf-voll" id="teilen-knopf" type="button">Link rausschicken</button>
+            <span class="teilen-status" id="teilen-status" aria-live="polite"></span>
+          </div>
+        </section>
+
+        <div class="spalten">
+          <div class="spalte spalte-links">
+            <h3>links</h3>
+            <ul id="liste-links"></ul>
+          </div>
+          <div class="spalte spalte-rechts">
+            <h3>rechts</h3>
+            <ul id="liste-rechts"></ul>
+          </div>
+        </div>
+
+        <div class="ergebnis-knoepfe">
+          <button class="knopf-rand" id="weiter" type="button">Weiterwischen</button>
+          <button class="knopf-rand knopf-loeschen" id="loeschen" type="button">Alles auf Anfang</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="steuerung">
+    <button class="knopf knopf-links" id="knopf-links" type="button" aria-label="links einordnen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="mitte">
+      <span class="fortschritt" id="fortschritt">0 / 0</span>
+      <div class="mitte-knoepfe">
+        <button class="knopf-klein" id="zurueck" type="button">zurück</button>
+        <button class="knopf-klein" id="ergebnis" type="button">Ergebnis</button>
+      </div>
+    </div>
+    <button class="knopf knopf-rechts" id="knopf-rechts" type="button" aria-label="rechts einordnen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </footer>
+
+  <script src="texte.js"></script>
+  <script src="dinge.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
