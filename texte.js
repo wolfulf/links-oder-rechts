@@ -1,29 +1,29 @@
-// Texte der normalen Version (index.html).
+// Alle Texte, die die Logik anzeigt.
 // Feste Texte im Seitenaufbau stehen direkt in index.html.
 window.TEXTE = {
-  richtig: "Richtig!",
+  richtig: "RICHTIG!",
 
-  einstieg: "Schnapp dir die Karte und wirf sie dahin, wo sie hingehört.",
-  vergleichHinweis: "Jemand will wissen, wie du tickst. Am Ende gibt's den Abgleich.",
+  einstieg: "Karte packen. Wegpfeffern. Bloß nicht nachdenken!",
+  vergleichHinweis: "Du wurdest herausgefordert! Mal sehen, ob ihr matcht.",
 
-  kickerFertig: "Endstand",
-  kickerZwischen: "Zwischenstand",
-  titelFertig: () => "Du hast zu 100 % recht.",
-  unterzeileFertig: (gesamt) => `${gesamt} von ${gesamt} Einschätzungen korrekt. Das schafft sonst kaum jemand. Großartig.`,
-  titelZwischen: (n) => `${n} von ${n} richtig.`,
-  unterzeileZwischen: (n, gesamt) => `Bisher fehlerfrei. ${gesamt - n} Dinge warten noch auf deine Expertise.`,
-  titelLeer: "Noch keine einzige Karte. Trau dich!",
-  leer: "gähnende Leere",
+  kickerFertig: "Tadaaa!",
+  kickerZwischen: "Boxenstopp",
+  titelFertig: () => "100 % RECHT. IMMER.",
+  unterzeileFertig: (gesamt) => `${gesamt} von ${gesamt}. Null Fehler. Du bist quasi ein politisches Orakel. Unfassbar stark!`,
+  titelZwischen: (n) => `${n} von ${n} richtig!`,
+  unterzeileZwischen: (n, gesamt) => `Makellos! Noch ${gesamt - n} Karten, dann ist es amtlich.`,
+  titelLeer: "Null Karten? Na komm schon!",
+  leer: "tote Hose",
 
-  vergleichAnders: (einig, n) => `Ihr habt beide zu 100 % recht. Einig seid ihr euch trotzdem nur bei ${einig} von ${n} Dingen. Hier habt ihr beide recht:`,
-  vergleichEinig: (n) => `${n} von ${n} gleich. Zwei Menschen, die immer recht haben. Verdächtig harmonisch.`,
+  vergleichAnders: (einig, n) => `Ihr habt BEIDE zu 100 % recht. Trotzdem nur ${einig} von ${n} Treffern. Hier habt ihr beide recht:`,
+  vergleichEinig: (n) => `${n} von ${n}! Zwei Genies, ein Gedanke.`,
   du: "du",
-  gegenueber: "Gegenüber",
+  gegenueber: "die anderen",
 
-  teilenText: "Ich habe zu 100 % recht. Bei allem. Lastenrad, Schnitzel, Gartenzwerg: links oder rechts? Mal sehen, ob du auch immer recht hast.",
-  kopiert: "Kopiert! Ab damit in den Gruppenchat.",
-  linkPrompt: "Link zum Kopieren:",
+  teilenText: "Ich hab zu 100 % recht. Bei ALLEM. Lastenrad? Schnitzel? Gartenzwerg? Links oder rechts – beweis mir, dass du auch immer recht hast.",
+  kopiert: "Zack, kopiert! Einfügen und zurücklehnen.",
+  linkPrompt: "Hier, schnapp dir den Link:",
 
-  loeschen: "Alles auf Anfang",
-  loeschenSicher: "Sicher? Nochmal tippen",
+  loeschen: "Alles in die Tonne",
+  loeschenSicher: "Echt jetzt? Nochmal!",
 };

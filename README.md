@@ -2,8 +2,7 @@
 
 Lastenrad, Schnitzel, Gartenzwerg: Karten nach links oder rechts wischen und damit dem politischen Spektrum zuordnen. Ein augenzwinkerndes Spiel darüber, dass inzwischen alles politisch aufgeladen ist.
 
-- `index.html`: ruhige Version
-- `pop.html`: knallbunte Version
+Knallbunt, frech, und du hast immer recht: Nach jedem Wischen gibt's ein „RICHTIG!“ mit Begründung, egal in welche Richtung.
 
 Reines HTML/CSS/JS, kein Build-Schritt. Lokal starten mit `python3 -m http.server`.
 
@@ -11,10 +10,11 @@ Reines HTML/CSS/JS, kein Build-Schritt. Lokal starten mit `python3 -m http.serve
 
 | Datei | Inhalt |
 |---|---|
-| `dinge.js` | Alle Dinge. Neue nur **hinten** anfügen, sonst passen geteilte Links nicht mehr. |
-| `texte.js`, `texte-pop.js` | Texte der beiden Versionen |
+| `dinge.js` | Alle Dinge samt Begründungen für links und rechts. Neue nur **hinten** anfügen, sonst passen geteilte Links nicht mehr. |
+| `texte.js` | Alle Texte, die die Logik anzeigt |
 | `app.js` | Logik: Wischen, Ergebnis, Teilen/Vergleich |
-| `style.css`, `pop.css` | Gestaltung (pop.css liegt über style.css) |
+| `style.css` | Gestaltung |
+| `pop.html` | Weiterleitung für alte Links auf die frühere Pop-Version |
 | `bilder/` | Strichzeichnungen als `<id>.png`. Fehlt eins, erscheint ein Platzhalter. |
 | `BILDER.md`, `BILDER-AUFTRAG.md` | Prompts und Auftrag für die Bildgenerierung mit Flux.1 |
 

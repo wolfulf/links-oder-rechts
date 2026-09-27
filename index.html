@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>links oder rechts</title>
-  <meta name="description" content="Lastenrad? Schnitzel? Gartenzwerg? Wisch jedes Ding dahin, wo es hingehört: nach links oder nach rechts.">
+  <meta name="description" content="Lastenrad? Schnitzel? Gartenzwerg? Ab nach links oder rechts damit. Schnell, frech, ohne Nachdenken.">
   <meta property="og:title" content="links oder rechts">
-  <meta property="og:description" content="Lastenrad? Schnitzel? Gartenzwerg? Wisch jedes Ding dahin, wo es hingehört: nach links oder nach rechts.">
-  <meta name="theme-color" content="#eef0f3">
+  <meta property="og:description" content="Lastenrad? Schnitzel? Gartenzwerg? Ab nach links oder rechts damit. Schnell, frech, ohne Nachdenken.">
+  <meta name="theme-color" content="#ffe14d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     </h1>
     <p class="hinweis" id="hinweis" hidden>
       <span id="hinweis-text"></span>
-      <button class="hinweis-knopf" id="vergleich-beenden" type="button">lieber nicht</button>
+      <button class="hinweis-knopf" id="vergleich-beenden" type="button">nö, danke</button>
     </p>
   </header>
 
@@ -53,18 +53,18 @@
         </div>
 
         <section class="block vergleich" id="vergleich" hidden>
-          <p class="kicker">Ihr zwei</p>
-          <p class="vergleich-quote"><strong id="vergleich-prozent">0 %</strong> einig</p>
+          <p class="kicker">Match-Check</p>
+          <p class="vergleich-quote"><strong id="vergleich-prozent">0 %</strong> Match</p>
           <p class="block-text" id="vergleich-text"></p>
           <ul class="unterschiede" id="unterschiede"></ul>
         </section>
 
         <section class="block teilen" id="teilen">
-          <p class="kicker">Weiterschicken</p>
-          <h3 class="block-titel">Haben deine Freunde auch immer recht?</h3>
-          <p class="block-text">Schick ihnen den Link. Sie wischen sich durch, und am Ende seht ihr, wo ihr euch einig seid. Recht habt ihr natürlich beide. Immer.</p>
+          <p class="kicker">Ab in den Chat</p>
+          <h3 class="block-titel">Sind deine Leute auch so unfehlbar?</h3>
+          <p class="block-text">Link rumschicken, Popcorn holen. Mal sehen, ob deine Freunde auch immer recht haben. Spoiler: Ja. Trotzdem gibt's am Ende das große Match, und es wird knallen.</p>
           <div class="teilen-zeile">
-            <button class="knopf-voll" id="teilen-knopf" type="button">Link rausschicken</button>
+            <button class="knopf-voll" id="teilen-knopf" type="button">Raus damit!</button>
             <span class="teilen-status" id="teilen-status" aria-live="polite"></span>
           </div>
         </section>
@@ -81,8 +81,8 @@
         </div>
 
         <div class="ergebnis-knoepfe">
-          <button class="knopf-rand" id="weiter" type="button">Weiterwischen</button>
-          <button class="knopf-rand knopf-loeschen" id="loeschen" type="button">Alles auf Anfang</button>
+          <button class="knopf-rand" id="weiter" type="button">Weiter geht's!</button>
+          <button class="knopf-rand knopf-loeschen" id="loeschen" type="button">Alles in die Tonne</button>
         </div>
       </div>
     </section>
@@ -96,7 +96,7 @@
       <span class="fortschritt" id="fortschritt">0 / 0</span>
       <div class="mitte-knoepfe">
         <button class="knopf-klein" id="zurueck" type="button">zurück</button>
-        <button class="knopf-klein" id="ergebnis" type="button">Ergebnis</button>
+        <button class="knopf-klein" id="ergebnis" type="button">Stand</button>
       </div>
     </div>
     <button class="knopf knopf-rechts" id="knopf-rechts" type="button" aria-label="rechts einordnen">

@@ -8,7 +8,7 @@
   const SICHTBARE_KARTEN = 3;
 
   const dinge = new Map(window.DINGE.map((d) => [d.id, d]));
-  const T = window.TEXTE; // Tonalität der jeweiligen Version (texte.js / texte-pop.js)
+  const T = window.TEXTE; // Texte aus texte.js
 
   // Schnittstelle für eine spätere gemeinsame Statistik.
   // Im Moment passiert hier nichts, später z. B. fetch("/api/stimme", …).
