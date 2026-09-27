@@ -1,22 +1,26 @@
 // Texte der knallbunten Version (pop.html).
 // Feste Texte im Seitenaufbau stehen direkt in pop.html.
 window.TEXTE = {
+  richtig: "RICHTIG!",
+
   einstieg: "Karte packen. Wegpfeffern. Bloß nicht nachdenken!",
   vergleichHinweis: "Du wurdest herausgefordert! Mal sehen, ob ihr matcht.",
 
   kickerFertig: "Tadaaa!",
   kickerZwischen: "Boxenstopp",
-  titelFertig: (gesamt) => `Alle ${gesamt} weggewischt. Absolute Legende!`,
-  titelZwischen: (n, gesamt) => `${n} von ${gesamt}. Da geht noch was!`,
+  titelFertig: () => "100 % RECHT. IMMER.",
+  unterzeileFertig: (gesamt) => `${gesamt} von ${gesamt}. Null Fehler. Du bist quasi ein politisches Orakel. Unfassbar stark!`,
+  titelZwischen: (n) => `${n} von ${n} richtig!`,
+  unterzeileZwischen: (n, gesamt) => `Makellos! Noch ${gesamt - n} Karten, dann ist es amtlich.`,
   titelLeer: "Null Karten? Na komm schon!",
   leer: "tote Hose",
 
-  vergleichAnders: (einig, n) => `${einig} von ${n} Treffern. Und hier fliegen die Fetzen:`,
-  vergleichEinig: (n) => `${n} von ${n}! Seid ihr zusammen aufgewachsen?`,
+  vergleichAnders: (einig, n) => `Ihr habt BEIDE zu 100 % recht. Trotzdem nur ${einig} von ${n} Treffern. Hier habt ihr beide recht:`,
+  vergleichEinig: (n) => `${n} von ${n}! Zwei Genies, ein Gedanke.`,
   du: "du",
   gegenueber: "die anderen",
 
-  teilenText: "Lastenrad? Schnitzel? Gartenzwerg? Links oder rechts – ich hab's durchgezogen. Traust du dich? Danach checken wir, wie sehr wir matchen.",
+  teilenText: "Ich hab zu 100 % recht. Bei ALLEM. Lastenrad? Schnitzel? Gartenzwerg? Links oder rechts – beweis mir, dass du auch immer recht hast.",
   kopiert: "Zack, kopiert! Einfügen und zurücklehnen.",
   linkPrompt: "Hier, schnapp dir den Link:",
 

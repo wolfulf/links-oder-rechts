@@ -10,7 +10,7 @@
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", system-ui, sans-serif;
 
-  --karte-breite: min(340px, 78vw, calc((100dvh - 300px) * 0.74));
+  --karte-breite: min(340px, 78vw, calc((100dvh - 420px) * 0.74));
 
   /* -1 = ganz links, 0 = Mitte, 1 = ganz rechts (setzt app.js) */
   --p: 0;
@@ -98,7 +98,12 @@ button { font: inherit; color: inherit; }
   text-wrap: balance;
 }
 
-.hinweis[hidden],
+.hinweis {
+  min-height: 2.6em;
+}
+
+/* Platz bleibt reserviert, damit die Karte nicht springt */
+.hinweis[hidden] { display: block; visibility: hidden; }
 .hinweis-knopf[hidden] { display: none; }
 
 .hinweis-knopf {
@@ -115,8 +120,11 @@ button { font: inherit; color: inherit; }
 /* ---------- Bühne & Kartenstapel ---------- */
 
 .buehne {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
   min-height: 0;
   position: relative;
 }
@@ -253,6 +261,50 @@ button { font: inherit; color: inherit; }
   opacity: clamp(0, calc(var(--a) * 1.6), 1);
 }
 
+/* ---------- Urteil nach dem Wischen ---------- */
+
+.urteil {
+  --seite: var(--tinte);
+  width: min(420px, calc(100vw - 32px));
+  height: 6.6rem;
+  text-align: center;
+}
+
+.urteil[hidden] { display: none; }
+.urteil[data-seite="links"] { --seite: var(--links); }
+.urteil[data-seite="rechts"] { --seite: var(--rechts); }
+
+.urteil p { margin: 0; }
+
+.urteil-was {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grau);
+}
+
+.urteil-richtig {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--seite);
+}
+
+.urteil-grund {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.urteil.neu { animation: urteil-rein 0.5s cubic-bezier(0.2, 1.4, 0.4, 1); }
+@keyframes urteil-rein {
+  from { opacity: 0; transform: translateY(10px) scale(0.92); }
+}
+
 /* ---------- Steuerung ---------- */
 
 .steuerung {
@@ -360,6 +412,15 @@ button { font: inherit; color: inherit; }
   text-transform: uppercase;
   color: var(--grau);
 }
+
+.ergebnis-unterzeile {
+  margin: -10px 0 0;
+  font-size: 1rem;
+  color: var(--grau);
+  text-wrap: pretty;
+}
+
+.ergebnis-unterzeile:empty { display: none; }
 
 .ergebnis-titel {
   margin: -12px 0 0;
@@ -568,5 +629,6 @@ button { font: inherit; color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .karte, .karte.fliegt, .wort, .balken-links, .balken-rechts { transition-duration: 0.01s; }
+  .urteil.neu { animation: none; }
   .wort.puls { animation: none; }
 }

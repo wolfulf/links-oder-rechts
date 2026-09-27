@@ -29,10 +29,17 @@
   <main class="buehne">
     <div class="stapel" id="stapel" aria-live="polite"></div>
 
+    <div class="urteil" id="urteil" aria-live="polite">
+      <p class="urteil-was" id="urteil-was"></p>
+      <p class="urteil-richtig" id="urteil-richtig"></p>
+      <p class="urteil-grund" id="urteil-grund"></p>
+    </div>
+
     <section class="ergebnis" id="ergebnis-ansicht" hidden aria-labelledby="ergebnis-titel">
       <div class="ergebnis-inhalt">
         <p class="kicker" id="ergebnis-kicker">Dein Ergebnis</p>
         <h2 class="ergebnis-titel" id="ergebnis-titel">Alles eingeordnet.</h2>
+        <p class="ergebnis-unterzeile" id="ergebnis-unterzeile"></p>
 
         <div class="verteilung" aria-hidden="true">
           <div class="verteilung-balken">
@@ -54,8 +61,8 @@
 
         <section class="block teilen" id="teilen">
           <p class="kicker">Weiterschicken</p>
-          <h3 class="block-titel">Und wie ticken deine Leute?</h3>
-          <p class="block-text">Schick den Link in den Gruppenchat. Wer draufklickt, wischt sich selbst durch und sieht am Ende, wo ihr euch einig seid. Und über welche Dinge ihr beim nächsten Abendessen reden müsst.</p>
+          <h3 class="block-titel">Haben deine Freunde auch immer recht?</h3>
+          <p class="block-text">Schick ihnen den Link. Sie wischen sich durch, und am Ende seht ihr, wo ihr euch einig seid. Recht habt ihr natürlich beide. Immer.</p>
           <div class="teilen-zeile">
             <button class="knopf-voll" id="teilen-knopf" type="button">Link rausschicken</button>
             <span class="teilen-status" id="teilen-status" aria-live="polite"></span>

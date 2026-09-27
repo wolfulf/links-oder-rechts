@@ -30,10 +30,17 @@
   <main class="buehne">
     <div class="stapel" id="stapel" aria-live="polite"></div>
 
+    <div class="urteil" id="urteil" aria-live="polite">
+      <p class="urteil-was" id="urteil-was"></p>
+      <p class="urteil-richtig" id="urteil-richtig"></p>
+      <p class="urteil-grund" id="urteil-grund"></p>
+    </div>
+
     <section class="ergebnis" id="ergebnis-ansicht" hidden aria-labelledby="ergebnis-titel">
       <div class="ergebnis-inhalt">
         <p class="kicker" id="ergebnis-kicker">Dein Ergebnis</p>
         <h2 class="ergebnis-titel" id="ergebnis-titel">Alles eingeordnet.</h2>
+        <p class="ergebnis-unterzeile" id="ergebnis-unterzeile"></p>
 
         <div class="verteilung" aria-hidden="true">
           <div class="verteilung-balken">
@@ -55,8 +62,8 @@
 
         <section class="block teilen" id="teilen">
           <p class="kicker">Ab in den Chat</p>
-          <h3 class="block-titel">Wer traut sich als Nächstes?</h3>
-          <p class="block-text">Link rumschicken, Popcorn holen. Deine Leute wischen sich durch, und am Ende gibt's das große Match: wo ihr euch einig seid und wo es so richtig knallt.</p>
+          <h3 class="block-titel">Sind deine Leute auch so unfehlbar?</h3>
+          <p class="block-text">Link rumschicken, Popcorn holen. Mal sehen, ob deine Freunde auch immer recht haben. Spoiler: Ja. Trotzdem gibt's am Ende das große Match, und es wird knallen.</p>
           <div class="teilen-zeile">
             <button class="knopf-voll" id="teilen-knopf" type="button">Raus damit!</button>
             <span class="teilen-status" id="teilen-status" aria-live="polite"></span>

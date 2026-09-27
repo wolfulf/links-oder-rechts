@@ -148,7 +148,8 @@ body {
 }
 
 .knopf-klein[aria-pressed="true"] { background: var(--tinte); color: var(--grund); }
-.knopf-klein:disabled { color: var(--grau); box-shadow: none; }
+.knopf-klein:disabled,
+.knopf-klein[aria-pressed="true"]:disabled { background: transparent; color: var(--grau); box-shadow: none; }
 
 /* ---------- Ergebnis ---------- */
 
@@ -261,3 +262,35 @@ body {
 
 .knopf-loeschen:hover,
 .knopf-loeschen.bestaetigen { background: var(--tinte); border-color: var(--tinte); color: #fff; }
+
+/* ---------- Urteil ---------- */
+
+.urteil { height: 7.4rem; }
+
+.urteil[data-seite] {
+  background: #fff;
+  border: var(--kante);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--seite);
+  padding: 8px 14px 10px;
+}
+
+.urteil-was { color: var(--tinte); font-weight: 700; }
+
+.urteil-richtig {
+  display: inline-block;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  text-shadow: 2px 2px 0 var(--tinte);
+  transform: rotate(-3deg);
+}
+
+.urteil-grund { font-weight: 600; }
+
+.urteil.neu { animation-name: urteil-pop; }
+@keyframes urteil-pop {
+  0% { opacity: 0; transform: scale(0.6) rotate(-6deg); }
+  60% { transform: scale(1.06) rotate(1deg); }
+}
+
+.ergebnis-unterzeile { color: var(--tinte); font-weight: 600; font-size: 1.05rem; }

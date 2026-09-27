@@ -123,6 +123,7 @@
   const knopfWeiter = $("weiter");
   const knopfLoeschen = $("loeschen");
   const hinweis = $("hinweis");
+  const urteil = $("urteil");
   const hinweisText = $("hinweis-text");
   const knopfVergleichBeenden = $("vergleich-beenden");
   const wortLinks = document.querySelector(".wort-links");
@@ -207,6 +208,7 @@
     knopfErgebnis.disabled = fertig;
     knopfErgebnis.setAttribute("aria-pressed", ergebnisSichtbar);
     stapel.hidden = ergebnisSichtbar;
+    urteil.hidden = ergebnisSichtbar;
     ergebnisAnsicht.hidden = !ergebnisSichtbar;
     // Unter dem Titel: Einstiegshilfe vor der ersten Karte oder Vergleichshinweis
     const zeigeEinstieg = !vergleich && position() === 0;
@@ -228,6 +230,11 @@
       : eingeordnet
         ? T.titelZwischen(eingeordnet, gesamt)
         : T.titelLeer;
+    $("ergebnis-unterzeile").textContent = fertig
+      ? T.unterzeileFertig(gesamt)
+      : eingeordnet
+        ? T.unterzeileZwischen(eingeordnet, gesamt)
+        : "";
     knopfWeiter.hidden = fertig;
     knopfLoeschen.hidden = eingeordnet === 0;
     $("teilen").hidden = eingeordnet === 0;
@@ -333,6 +340,7 @@
     zustand = neuerDurchgang();
     speichern();
     ergebnisOffen = false;
+    leereUrteil();
     ordneStapel();
   }
 
@@ -368,6 +376,7 @@
     setTimeout(() => el.remove(), 500);
 
     pulsieren(seite);
+    zeigeUrteil(id, seite);
     zustand.antworten[id] = seite;
     zustand.verlauf.push(id);
     speichern();
@@ -380,6 +389,24 @@
     }, 260);
   }
 
+  // Egal wie entschieden wurde: Es ist RICHTIG. Mit Begründung.
+  function zeigeUrteil(id, seite) {
+    const ding = dinge.get(id);
+    urteil.dataset.seite = seite;
+    $("urteil-was").textContent = `${ding.name} → ${seite}`;
+    $("urteil-richtig").textContent = T.richtig;
+    $("urteil-grund").textContent = ding[seite];
+    urteil.classList.remove("neu");
+    void urteil.offsetWidth;
+    urteil.classList.add("neu");
+  }
+
+  function leereUrteil() {
+    delete urteil.dataset.seite;
+    urteil.classList.remove("neu");
+    for (const teil of ["was", "richtig", "grund"]) $("urteil-" + teil).textContent = "";
+  }
+
   function pulsieren(seite) {
     const wort = seite === "links" ? wortLinks : wortRechts;
     wort.classList.remove("puls");
@@ -390,6 +417,7 @@
   function zurueck() {
     if (beschaeftigt || position() === 0) return;
     ergebnisOffen = false;
+    leereUrteil();
     const id = zustand.verlauf.pop();
     const seite = zustand.antworten[id];
     delete zustand.antworten[id];
