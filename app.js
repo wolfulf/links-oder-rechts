@@ -6,6 +6,7 @@
   const SPEICHER_SCHLUESSEL = "links-oder-rechts-v1";
   const VERGLEICH_SCHLUESSEL = "links-oder-rechts-vergleich";
   const SICHTBARE_KARTEN = 3;
+  const PAUSE_ALLE = 20; // nach so vielen Karten fragen: weiter oder Ergebnis?
 
   const dinge = new Map(window.DINGE.map((d) => [d.id, d]));
   const T = window.TEXTE; // Texte aus texte.js
@@ -124,6 +125,7 @@
   const knopfLoeschen = $("loeschen");
   const hinweis = $("hinweis");
   const urteil = $("urteil");
+  const pauseAnsicht = $("pause");
   const hinweisText = $("hinweis-text");
   const knopfVergleichBeenden = $("vergleich-beenden");
   const wortLinks = document.querySelector(".wort-links");
@@ -201,13 +203,16 @@
     const gesamt = zustand.reihenfolge.length;
     const fertig = position() >= gesamt;
     const ergebnisSichtbar = fertig || ergebnisOffen;
+    const pause = pauseFaellig() && !ergebnisSichtbar;
 
-    fortschritt.textContent = fertig ? `${gesamt} / ${gesamt}` : `${position() + 1} / ${gesamt}`;
-    knopfLinks.disabled = knopfRechts.disabled = ergebnisSichtbar;
+    fortschritt.textContent = fertig || pause ? `${position()} / ${gesamt}` : `${position() + 1} / ${gesamt}`;
+    knopfLinks.disabled = knopfRechts.disabled = ergebnisSichtbar || pause;
     knopfZurueck.disabled = position() === 0;
     knopfErgebnis.disabled = fertig;
     knopfErgebnis.setAttribute("aria-pressed", ergebnisSichtbar);
-    stapel.hidden = ergebnisSichtbar;
+    stapel.hidden = ergebnisSichtbar || pause;
+    pauseAnsicht.hidden = !pause;
+    if (pause) zeigePause();
     urteil.hidden = ergebnisSichtbar;
     ergebnisAnsicht.hidden = !ergebnisSichtbar;
     // Unter dem Titel: Einstiegshilfe vor der ersten Karte oder Vergleichshinweis
@@ -216,6 +221,28 @@
     hinweisText.textContent = vergleich ? T.vergleichHinweis : T.einstieg;
     knopfVergleichBeenden.hidden = !vergleich;
     if (ergebnisSichtbar) zeigeErgebnis(fertig);
+  }
+
+  // ---------- Pause alle 20 Karten ----------
+
+  function pauseFaellig() {
+    const n = position();
+    return n > 0 && n < zustand.reihenfolge.length && n % PAUSE_ALLE === 0 && zustand.pauseQuittiert !== n;
+  }
+
+  function zeigePause() {
+    const n = position();
+    $("pause-kicker").textContent = T.pauseKicker;
+    $("pause-titel").textContent = T.pauseTitel(n);
+    $("pause-text").textContent = T.pauseText(n, zustand.reihenfolge.length - n);
+  }
+
+  function pauseBeenden(zumErgebnis) {
+    zustand.pauseQuittiert = position();
+    speichern();
+    ergebnisOffen = zumErgebnis;
+    aktualisiereAnzeige();
+    if (zumErgebnis) ergebnisAnsicht.scrollTop = 0;
   }
 
   // ---------- Ergebnis ----------
@@ -362,7 +389,7 @@
   let beschaeftigt = false;
 
   function einordnen(seite, el, dy = 0) {
-    if (!el || beschaeftigt || ergebnisOffen) return;
+    if (!el || beschaeftigt || ergebnisOffen || pauseFaellig()) return;
     beschaeftigt = true;
     const id = el.dataset.id;
     const richtung = seite === "links" ? -1 : 1;
@@ -503,12 +530,18 @@
   knopfWeiter.addEventListener("click", () => ergebnisUmschalten(false));
   knopfLoeschen.addEventListener("click", loeschen);
   $("teilen-knopf").addEventListener("click", teilen);
+  $("pause-weiter").addEventListener("click", () => pauseBeenden(false));
+  $("pause-ergebnis").addEventListener("click", () => pauseBeenden(true));
   $("vergleich-beenden").addEventListener("click", vergleichBeenden);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") einordnen("links", obersteKarte());
     else if (e.key === "ArrowRight") einordnen("rechts", obersteKarte());
     else if (e.key === "Escape" && ergebnisOffen) ergebnisUmschalten(false);
+    else if (e.key === "Enter" && pauseFaellig() && !ergebnisOffen) {
+      e.preventDefault();
+      pauseBeenden(false);
+    }
     else if (e.key === "Backspace" || (e.key === "z" && (e.metaKey || e.ctrlKey))) {
       e.preventDefault();
       zurueck();

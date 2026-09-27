@@ -12,6 +12,10 @@ window.TEXTE = {
   unterzeileFertig: (gesamt) => `${gesamt} von ${gesamt}. Null Fehler. Du bist quasi ein politisches Orakel. Unfassbar stark!`,
   titelZwischen: (n) => `${n} von ${n} richtig!`,
   unterzeileZwischen: (n, gesamt) => `Makellos! Noch ${gesamt - n} Karten, dann ist es amtlich.`,
+  pauseKicker: "Kurze Verschnaufpause",
+  pauseTitel: (n) => `${n} von ${n} richtig!`,
+  pauseText: (n, rest) => `Du bist nicht zu stoppen. Noch ${rest} Dinge warten auf dein unfehlbares Urteil. Weiter oder erst mal das Ergebnis feiern?`,
+
   titelLeer: "Null Karten? Na komm schon!",
   leer: "tote Hose",
 

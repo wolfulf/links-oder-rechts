@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <header class="kopf">
@@ -28,6 +28,16 @@
 
   <main class="buehne">
     <div class="stapel" id="stapel" aria-live="polite"></div>
+
+    <section class="block pause" id="pause" hidden aria-labelledby="pause-titel">
+      <p class="kicker" id="pause-kicker"></p>
+      <h2 class="block-titel" id="pause-titel"></h2>
+      <p class="block-text" id="pause-text"></p>
+      <div class="pause-knoepfe">
+        <button class="knopf-voll" id="pause-weiter" type="button">Weiterwischen!</button>
+        <button class="knopf-rand" id="pause-ergebnis" type="button">Zum Ergebnis</button>
+      </div>
+    </section>
 
     <div class="urteil" id="urteil" aria-live="polite">
       <p class="urteil-was" id="urteil-was"></p>
@@ -104,8 +114,8 @@
     </button>
   </footer>
 
-  <script src="texte.js?v=5"></script>
-  <script src="dinge.js?v=5"></script>
-  <script src="app.js?v=5"></script>
+  <script src="texte.js?v=6"></script>
+  <script src="dinge.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

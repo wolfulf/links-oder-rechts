@@ -943,3 +943,24 @@ body {
 }
 
 .ergebnis-unterzeile { color: var(--tinte); font-weight: 600; font-size: 1.05rem; }
+
+/* ---------- Pause alle 20 Karten ---------- */
+
+.pause {
+  width: min(360px, 88vw);
+  flex: 0 0 auto;
+  background: var(--flieder);
+}
+
+.pause[hidden] { display: none; }
+
+.pause-knoepfe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pause-knoepfe button { width: 100%; }
+
+.pause:not([hidden]) { animation: urteil-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1); }
