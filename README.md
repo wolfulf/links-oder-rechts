@@ -6,6 +6,8 @@ Knallbunt, frech, und du hast immer recht: Nach jedem Wischen gibt's ein „RICH
 
 Reines HTML/CSS/JS, kein Build-Schritt. Lokal starten mit `python3 -m http.server`.
 
+Nach Änderungen an CSS/JS die Versionsnummer `?v=` in `index.html` hochzählen, damit Browser nicht die alte Fassung aus dem Cache zeigen.
+
 ## Dateien
 
 | Datei | Inhalt |
